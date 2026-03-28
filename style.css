@@ -37,8 +37,8 @@ main {
   justify-content: center;
   gap: 2.5rem;
   width: 100%;
-  max-width: 480px;
-  padding: 4rem 1.5rem 2rem;
+  max-width: 640px;
+  padding: 4rem 2rem 2rem;
   text-align: center;
 }
 
