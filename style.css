@@ -39,11 +39,28 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 2.5rem;
   width: 100%;
-  max-width: 720px;
+  max-width: 680px;
   padding: 4rem 1.5rem 2rem;
   text-align: center;
+}
+
+/* ─── Logo ───────────────────────────────── */
+
+.logo {
+  margin-bottom: 0.25rem;
+}
+
+.logo-text {
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, #f0d0dc 0%, #c9879e 50%, #9a5878 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
 }
 
 /* ─── Hero ───────────────────────────────── */
@@ -52,54 +69,73 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-}
-
-.logo {
-  margin-bottom: 0.5rem;
-}
-
-.logo-text {
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  background: linear-gradient(135deg, #f0d0dc 0%, #c9879e 50%, #9a5878 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1.1;
+  gap: 1.25rem;
 }
 
 h1 {
-  font-size: clamp(1.5rem, 4.5vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.h1-lead {
+  font-size: clamp(0.8rem, 2.2vw, 0.95rem);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+}
+
+.h1-main {
+  font-size: clamp(1.75rem, 5.5vw, 2.75rem);
   font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
-  color: var(--color-text);
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+  background: linear-gradient(135deg, #f0d0dc 0%, #c9879e 55%, #9a5878 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .subcopy {
-  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
   color: var(--color-text-muted);
-  line-height: 1.7;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+}
+
+/* ─── Divider ────────────────────────────── */
+
+.divider {
+  width: 1px;
+  height: 2.5rem;
+  background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+  opacity: 0.5;
+  margin: -0.5rem 0;
 }
 
 /* ─── Message ────────────────────────────── */
 
 .message {
-  border-left: 3px solid var(--color-accent);
-  padding: 0.75rem 1.25rem;
-  text-align: left;
-  max-width: 480px;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
 }
 
-.message p {
-  font-size: clamp(0.875rem, 2.2vw, 1rem);
+.message-kw {
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.04em;
+}
+
+.message-desc {
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
   color: var(--color-text-muted);
   line-height: 1.9;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
 }
 
 /* ─── CTA ────────────────────────────────── */
@@ -114,18 +150,17 @@ h1 {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.8rem 1.75rem;
+  padding: 0.75rem 1.75rem;
   background-color: #130f18;
   color: var(--color-x);
   border: 1px solid #2e2438;
   border-radius: 9999px;
   font-family: var(--font-main);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   text-decoration: none;
   transition: color 0.2s, border-color 0.2s, background-color 0.2s;
-  cursor: pointer;
 }
 
 .btn-x:hover {
@@ -135,8 +170,8 @@ h1 {
 }
 
 .x-icon {
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1rem;
+  height: 1rem;
   flex-shrink: 0;
 }
 
@@ -150,20 +185,16 @@ footer {
 }
 
 footer p {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--color-text-muted);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.06em;
 }
 
 /* ─── Responsive ─────────────────────────── */
 
 @media (max-width: 480px) {
   main {
-    gap: 2.5rem;
+    gap: 2rem;
     padding: 3rem 1.25rem 1.5rem;
-  }
-
-  .message {
-    padding: 0.625rem 1rem;
   }
 }
