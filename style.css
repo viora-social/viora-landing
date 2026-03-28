@@ -52,15 +52,10 @@ main {
   margin-bottom: 0.25rem;
 }
 
-.logo-text {
-  font-size: clamp(2rem, 7vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  background: linear-gradient(135deg, #f0d0dc 0%, #c9879e 50%, #9a5878 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1.1;
+.logo-img {
+  width: clamp(160px, 40vw, 260px);
+  height: auto;
+  display: block;
 }
 
 /* ─── Hero ───────────────────────────────── */
