@@ -5,14 +5,14 @@
 }
 
 :root {
-  --color-bg: #0d0d12;
-  --color-surface: #16161f;
-  --color-text: #f0eff5;
-  --color-text-muted: #8e8da0;
-  --color-accent: #9b7fe8;
-  --color-accent-hover: #b59bf0;
-  --color-x: #e7e7e7;
-  --color-x-hover: #ffffff;
+  --color-bg: #0d0b10;
+  --color-surface: #16121c;
+  --color-text: #f0eef4;
+  --color-text-muted: #8a8098;
+  --color-accent: #c9879e;
+  --color-accent-hover: #dfa0b8;
+  --color-x: #e0d8e8;
+  --color-x-hover: #f0eef4;
   --font-main: 'Noto Sans JP', sans-serif;
 }
 
@@ -63,7 +63,7 @@ main {
   font-size: clamp(2.5rem, 8vw, 4.5rem);
   font-weight: 700;
   letter-spacing: 0.04em;
-  background: linear-gradient(135deg, #c4aff8 0%, #9b7fe8 50%, #6b8af0 100%);
+  background: linear-gradient(135deg, #f0d0dc 0%, #c9879e 50%, #9a5878 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -115,9 +115,9 @@ h1 {
   align-items: center;
   gap: 0.6rem;
   padding: 0.8rem 1.75rem;
-  background-color: #000;
+  background-color: #130f18;
   color: var(--color-x);
-  border: 1px solid #333;
+  border: 1px solid #2e2438;
   border-radius: 9999px;
   font-family: var(--font-main);
   font-size: 0.95rem;
@@ -130,8 +130,8 @@ h1 {
 
 .btn-x:hover {
   color: var(--color-x-hover);
-  border-color: #555;
-  background-color: #111;
+  border-color: #4e3858;
+  background-color: #1c1524;
 }
 
 .x-icon {
@@ -146,7 +146,7 @@ footer {
   width: 100%;
   padding: 1.25rem 1.5rem;
   text-align: center;
-  border-top: 1px solid #1e1e2a;
+  border-top: 1px solid #1c1824;
 }
 
 footer p {
