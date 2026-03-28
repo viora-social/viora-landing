@@ -125,9 +125,16 @@ h1 {
 }
 
 .actors-caption {
-  font-size: 0.82rem;
-  color: var(--color-muted);
+  font-size: 1rem;
+  color: var(--color-text);
   letter-spacing: 0.06em;
+}
+
+.actors-caption-vtuber {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-pink-light);
+  letter-spacing: 0.05em;
 }
 
 /* ─── CTA ────────────────────────────────── */
