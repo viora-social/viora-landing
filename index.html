@@ -34,27 +34,44 @@
 </head>
 <body>
   <main>
-    <section class="hero">
-      <div class="logo">
-        <img src="assets/logo.svg" alt="" class="logo-symbol" aria-hidden="true">
-        <span class="logo-wordmark">VIORA</span>
-      </div>
 
-      <h1>
-        <span class="h1-lead"><em class="vtuber">VTuber</em> のための、</span>
-        <span class="h1-main">新しい文化を、ともに。</span>
-      </h1>
+    <!-- ロゴ -->
+    <div class="logo">
+      <img src="assets/logo.svg" alt="" class="logo-symbol" aria-hidden="true">
+      <span class="logo-wordmark">VIORA</span>
+    </div>
 
-      <p class="subcopy">ライバー・リスナー・クリエイターの<br>総合プラットフォーム。まもなく公開。</p>
+    <!-- ステータスバッジ -->
+    <div class="status-badge" role="status">
+      <span class="status-dot" aria-hidden="true"></span>
+      まもなく公開
+    </div>
+
+    <!-- メインコピー -->
+    <h1>新しい文化を、ともに。</h1>
+
+    <!-- アクター -->
+    <section class="actors" aria-label="対象ユーザー">
+      <ul class="actor-badges">
+        <li class="actor-badge">ライバー</li>
+        <li class="actor-badge">リスナー</li>
+        <li class="actor-badge">クリエイター</li>
+      </ul>
+      <p class="actors-caption">VTuber のための総合プラットフォーム</p>
     </section>
 
-    <div class="divider" aria-hidden="true"></div>
+    <div class="sep" aria-hidden="true"></div>
 
-    <section class="message">
-      <p class="message-kw">配信も、コミュニティも、グッズも。</p>
-      <p class="message-desc">ライバーの活動すべてに向き合うプラットフォームをつくっています。</p>
+    <!-- 機能タグ -->
+    <section class="features" aria-label="主な機能">
+      <ul class="feature-tags">
+        <li class="feature-tag">配信</li>
+        <li class="feature-tag">コミュニティ</li>
+        <li class="feature-tag">グッズ</li>
+      </ul>
     </section>
 
+    <!-- CTA -->
     <section class="cta">
       <a href="https://x.com/viora_social" target="_blank" rel="noopener noreferrer" class="btn-x">
         <svg class="x-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
@@ -63,6 +80,7 @@
         X でフォローする
       </a>
     </section>
+
   </main>
 
   <footer>
