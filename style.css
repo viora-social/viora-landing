@@ -5,30 +5,49 @@
 }
 
 :root {
-  --color-bg: #0d0b10;
-  --color-surface: #16121c;
-  --color-text: #f0eef4;
-  --color-text-muted: #8a8098;
-  --color-accent: #c9879e;
-  --color-accent-hover: #dfa0b8;
-  --color-x: #e0d8e8;
-  --color-x-hover: #f0eef4;
+  --color-bg-top:   #241b2e;
+  --color-bg:       #16121a;
+  --color-text:     #f0eef4;
+  --color-muted:    #8a8098;
+  --color-accent:   #d697ac;
+  --color-pink-light: #f8dce6;
+  --color-pink-dark:  #9a5878;
+  --color-purple:   #7c5f99;
   --font-main: 'Noto Sans JP', sans-serif;
+  --font-logo: 'Outfit', sans-serif;
 }
 
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
-}
+html { font-size: 16px; scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-main);
-  background-color: var(--color-bg);
+  background: linear-gradient(180deg, var(--color-bg-top) 0%, var(--color-bg) 100%);
+  background-attachment: fixed;
   color: var(--color-text);
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ─── Floating stars ─────────────────────── */
+
+.star {
+  position: fixed;
+  fill: var(--color-pink-light);
+  opacity: 0.45;
+  pointer-events: none;
+  animation: float 4s ease-in-out infinite;
+}
+
+.star--sm { width: 18px; height: 18px; }
+.star--md { width: 26px; height: 26px; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-10px) rotate(12deg); }
 }
 
 /* ─── Layout ─────────────────────────────── */
@@ -39,67 +58,104 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 2.25rem;
   width: 100%;
-  max-width: 720px;
-  padding: 4rem 1.5rem 2rem;
+  max-width: 560px;
+  padding: 4rem 2rem 2rem;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
-/* ─── Hero ───────────────────────────────── */
+/* ─── Logo ───────────────────────────────── */
 
-.hero {
+.logo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0.6rem;
 }
 
-.logo {
-  margin-bottom: 0.5rem;
+.logo-symbol {
+  width: clamp(72px, 15vw, 110px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 14px rgba(214, 151, 172, 0.6));
 }
 
-.logo-text {
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  background: linear-gradient(135deg, #f0d0dc 0%, #c9879e 50%, #9a5878 100%);
+.logo-wordmark {
+  font-family: var(--font-logo);
+  font-size: clamp(1.5rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: 0.45em;
+  padding-left: 0.7em;
+  text-transform: uppercase;
+  background: linear-gradient(to bottom, #ffffff, var(--color-pink-light));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1.1;
+  filter: drop-shadow(0 0 8px rgba(248, 220, 230, 0.3));
 }
 
-h1 {
-  font-size: clamp(1.5rem, 4.5vw, 2.25rem);
-  font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
-  color: var(--color-text);
+/* ─── Status badge ───────────────────────── */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  border: 1px solid rgba(214, 151, 172, 0.3);
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
 }
 
-.subcopy {
-  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
-  color: var(--color-text-muted);
-  line-height: 1.7;
-  letter-spacing: 0.02em;
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex-shrink: 0;
+  animation: pulse 2.4s ease-in-out infinite;
 }
 
-/* ─── Message ────────────────────────────── */
-
-.message {
-  border-left: 3px solid var(--color-accent);
-  padding: 0.75rem 1.25rem;
-  text-align: left;
-  max-width: 480px;
-  width: 100%;
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.35; transform: scale(0.75); }
 }
 
-.message p {
-  font-size: clamp(0.875rem, 2.2vw, 1rem);
-  color: var(--color-text-muted);
-  line-height: 1.9;
-  letter-spacing: 0.02em;
+/* ─── Platform label ─────────────────────── */
+
+.platform-label {
+  font-family: var(--font-logo);
+  font-size: clamp(1rem, 3.5vw, 2.5rem);
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+}
+
+.platform-label-vliver {
+  font-weight: 600;
+  color: var(--color-pink-light);
+  letter-spacing: 0.1em;
+}
+
+/* ─── Actors ─────────────────────────────── */
+
+.actors {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.actor-triangle {
+  width: clamp(200px, 58vw, 268px);
+  height: auto;
+  display: block;
 }
 
 /* ─── CTA ────────────────────────────────── */
@@ -114,29 +170,28 @@ h1 {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.8rem 1.75rem;
-  background-color: #130f18;
-  color: var(--color-x);
-  border: 1px solid #2e2438;
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-purple));
+  color: #fff;
+  border: none;
   border-radius: 9999px;
   font-family: var(--font-main);
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-decoration: none;
-  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
-  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(214, 151, 172, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-x:hover {
-  color: var(--color-x-hover);
-  border-color: #4e3858;
-  background-color: #1c1524;
+  transform: scale(1.04);
+  box-shadow: 0 6px 24px rgba(214, 151, 172, 0.5);
 }
 
 .x-icon {
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1rem;
+  height: 1rem;
   flex-shrink: 0;
 }
 
@@ -144,26 +199,24 @@ h1 {
 
 footer {
   width: 100%;
-  padding: 1.25rem 1.5rem;
+  padding: 1.25rem 2rem;
   text-align: center;
-  border-top: 1px solid #1c1824;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  position: relative;
+  z-index: 1;
 }
 
 footer p {
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-  letter-spacing: 0.03em;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  letter-spacing: 0.06em;
 }
 
 /* ─── Responsive ─────────────────────────── */
 
 @media (max-width: 480px) {
   main {
-    gap: 2.5rem;
+    gap: 2rem;
     padding: 3rem 1.25rem 1.5rem;
-  }
-
-  .message {
-    padding: 0.625rem 1rem;
   }
 }
