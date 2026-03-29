@@ -1,21 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="230 10 340 395">
-    <defs>
-        <linearGradient id="portalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#f0d0dc" />
-            <stop offset="100%" stop-color="#9a5878" />
-        </linearGradient>
-        <linearGradient id="beamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#f0d0dc" stop-opacity="0.15" />
-            <stop offset="100%" stop-color="#f0d0dc" stop-opacity="0" />
-        </linearGradient>
-    </defs>
-
-    <g transform="translate(0, -30)">
-        <polygon points="370,280 430,280 500,420 300,420" fill="url(#beamGrad)" />
-        <line x1="260" y1="280" x2="540" y2="280" stroke="url(#portalGrad)" stroke-width="2" opacity="0.8" stroke-linecap="round"/>
-        <path d="M 310 280 V 150 A 90 90 0 0 1 490 150 V 280" fill="none" stroke="url(#portalGrad)" stroke-width="3" opacity="0.9" />
-        <path d="M 340 280 V 150 A 60 60 0 0 1 460 150 V 280 Z" fill="url(#portalGrad)" opacity="0.35" />
-        <path d="M 370 280 V 150 A 30 30 0 0 1 430 150 V 280 Z" fill="#f0d0dc" />
-        <line x1="400" y1="120" x2="400" y2="280" stroke="#0d0b10" stroke-width="3" />
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#glow)">
+    <!-- Outer portal arch -->
+    <path d="M45 110C45 79.6243 69.6243 55 100 55C130.376 55 155 79.6243 155 110"
+          stroke="#d697ac" stroke-width="12" stroke-linecap="round"/>
+    <!-- Inner dashed ring -->
+    <circle cx="100" cy="110" r="40"
+            stroke="#f8dce6" stroke-width="2" stroke-dasharray="8 8" opacity="0.55"/>
+    <!-- Core beam -->
+    <rect x="96" y="70" width="8" height="60" rx="4" fill="#f8dce6"/>
+    <!-- Floor reflection -->
+    <ellipse cx="100" cy="160" rx="60" ry="14" fill="#d697ac" opacity="0.18"/>
+    <!-- Sparkles -->
+    <circle cx="60"  cy="70" r="3" fill="white" opacity="0.9"/>
+    <circle cx="150" cy="90" r="2" fill="white" opacity="0.9"/>
+  </g>
 </svg>

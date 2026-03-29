@@ -5,12 +5,14 @@
 }
 
 :root {
-  --color-bg: #0d0b10;
-  --color-text: #f0eef4;
-  --color-muted: #8a8098;
-  --color-accent: #c9879e;
-  --color-pink-light: #f0d0dc;
-  --color-pink-dark: #9a5878;
+  --color-bg-top:   #241b2e;
+  --color-bg:       #16121a;
+  --color-text:     #f0eef4;
+  --color-muted:    #8a8098;
+  --color-accent:   #d697ac;
+  --color-pink-light: #f8dce6;
+  --color-pink-dark:  #9a5878;
+  --color-purple:   #7c5f99;
   --font-main: 'Noto Sans JP', sans-serif;
   --font-logo: 'Outfit', sans-serif;
 }
@@ -19,12 +21,33 @@ html { font-size: 16px; scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-main);
-  background-color: var(--color-bg);
+  background: linear-gradient(180deg, var(--color-bg-top) 0%, var(--color-bg) 100%);
+  background-attachment: fixed;
   color: var(--color-text);
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ─── Floating stars ─────────────────────── */
+
+.star {
+  position: fixed;
+  fill: var(--color-pink-light);
+  opacity: 0.45;
+  pointer-events: none;
+  animation: float 4s ease-in-out infinite;
+}
+
+.star--sm { width: 18px; height: 18px; }
+.star--md { width: 26px; height: 26px; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-10px) rotate(12deg); }
 }
 
 /* ─── Layout ─────────────────────────────── */
@@ -40,6 +63,8 @@ main {
   max-width: 560px;
   padding: 4rem 2rem 2rem;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 /* ─── Logo ───────────────────────────────── */
@@ -55,16 +80,21 @@ main {
   width: clamp(72px, 15vw, 110px);
   height: auto;
   display: block;
+  filter: drop-shadow(0 0 14px rgba(214, 151, 172, 0.6));
 }
 
 .logo-wordmark {
   font-family: var(--font-logo);
   font-size: clamp(1.5rem, 4vw, 2.6rem);
-  font-weight: 300;
+  font-weight: 800;
   letter-spacing: 0.45em;
   padding-left: 0.45em;
-  color: var(--color-pink-light);
   text-transform: uppercase;
+  background: linear-gradient(to bottom, #ffffff, var(--color-pink-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 8px rgba(248, 220, 230, 0.3));
 }
 
 /* ─── Status badge ───────────────────────── */
@@ -74,11 +104,13 @@ main {
   align-items: center;
   gap: 0.5rem;
   padding: 0.35rem 1rem;
-  border: 1px solid rgba(201, 135, 158, 0.25);
+  border: 1px solid rgba(214, 151, 172, 0.3);
   border-radius: 9999px;
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   color: var(--color-muted);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
 }
 
 .status-dot {
@@ -93,22 +125,6 @@ main {
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50%       { opacity: 0.35; transform: scale(0.75); }
-}
-
-
-/* ─── Actors ─────────────────────────────── */
-
-.actors {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.actor-triangle {
-  width: clamp(200px, 58vw, 268px);
-  height: auto;
-  display: block;
 }
 
 /* ─── Platform label ─────────────────────── */
@@ -127,6 +143,21 @@ main {
   letter-spacing: 0.1em;
 }
 
+/* ─── Actors ─────────────────────────────── */
+
+.actors {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.actor-triangle {
+  width: clamp(200px, 58vw, 268px);
+  height: auto;
+  display: block;
+}
+
 /* ─── CTA ────────────────────────────────── */
 
 .cta {
@@ -139,23 +170,23 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.75rem 1.75rem;
-  background-color: #130f18;
-  color: #e0d8e8;
-  border: 1px solid #2e2438;
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-purple));
+  color: #fff;
+  border: none;
   border-radius: 9999px;
   font-family: var(--font-main);
   font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-decoration: none;
-  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+  box-shadow: 0 4px 18px rgba(214, 151, 172, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-x:hover {
-  color: var(--color-text);
-  border-color: #4e3858;
-  background-color: #1c1524;
+  transform: scale(1.04);
+  box-shadow: 0 6px 24px rgba(214, 151, 172, 0.5);
 }
 
 .x-icon {
@@ -170,7 +201,9 @@ footer {
   width: 100%;
   padding: 1.25rem 2rem;
   text-align: center;
-  border-top: 1px solid #1c1824;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  position: relative;
+  z-index: 1;
 }
 
 footer p {
