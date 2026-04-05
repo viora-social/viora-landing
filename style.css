@@ -219,4 +219,7 @@ footer p {
     gap: 2rem;
     padding: 3rem 1.25rem 1.5rem;
   }
+  .logo-symbol {
+    filter: none;
+  }
 }
