@@ -1,0 +1,26 @@
+name: verify
+
+on:
+  push:
+    branches: [dev]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Start nginx
+        run: docker compose up -d
+
+      - name: Wait for nginx
+        run: |
+          for i in $(seq 1 10); do
+            curl -sf http://localhost:8081/ && break
+            sleep 2
+          done
+
+      - name: Verify HTML response
+        run: |
+          curl -sf http://localhost:8081/ | grep -q "Viora"
+          curl -sf http://localhost:8081/style.css | grep -q "color-accent"
