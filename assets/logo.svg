@@ -8,14 +8,14 @@
   <g filter="url(#glow)">
     <!-- Outer portal arch -->
     <path d="M45 110C45 79.6243 69.6243 55 100 55C130.376 55 155 79.6243 155 110"
-          stroke="#d697ac" stroke-width="12" stroke-linecap="round"/>
+          stroke="#00c8ff" stroke-width="12" stroke-linecap="round"/>
     <!-- Inner dashed ring -->
     <circle cx="100" cy="110" r="40"
-            stroke="#f8dce6" stroke-width="2" stroke-dasharray="8 8" opacity="0.55"/>
+            stroke="#80e8ff" stroke-width="2" stroke-dasharray="8 8" opacity="0.55"/>
     <!-- Core beam -->
-    <rect x="96" y="70" width="8" height="60" rx="4" fill="#f8dce6"/>
+    <rect x="96" y="70" width="8" height="60" rx="4" fill="#80e8ff"/>
     <!-- Floor reflection -->
-    <ellipse cx="100" cy="160" rx="60" ry="14" fill="#d697ac" opacity="0.18"/>
+    <ellipse cx="100" cy="160" rx="60" ry="14" fill="#00c8ff" opacity="0.18"/>
     <!-- Sparkles -->
     <circle cx="60"  cy="70" r="3" fill="white" opacity="0.9"/>
     <circle cx="150" cy="90" r="2" fill="white" opacity="0.9"/>
