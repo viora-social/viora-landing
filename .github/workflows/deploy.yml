@@ -1,0 +1,44 @@
+name: verify-and-deploy
+
+on:
+  push:
+    branches: [dev]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Start nginx
+        run: docker compose up -d
+
+      - name: Wait for nginx
+        run: |
+          for i in $(seq 1 10); do
+            curl -sf http://localhost:8081/ && break
+            sleep 2
+          done
+
+      - name: Verify HTML response
+        run: |
+          curl -sf http://localhost:8081/ | grep -q "Viora"
+          curl -sf http://localhost:8081/style.css | grep -q "color-accent"
+
+  deploy:
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Merge dev into main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout main
+          git merge --ff-only origin/dev
+          git push origin main
